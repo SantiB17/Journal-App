@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">JournalApp</string>
+    <string name="enterTitle" />
+    <string name="note" />
+    <string name="Note" />
+    <string name="save">SAVE</string>
+    <string name="title_text">Day Recording Journal</string>
+    <string name="todays_thoughts">What are you thinking?</string>
+    <string name="write_thoughts">Get Started</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_text">Login</string>
+    <string name="or_text">Or</string>
+    <string name="sign_up_text">Make Account</string>
+    <string name="username_hint">Username</string>
+    <string name="post_title" />
+    <string name="thoughts">Your Thoughts</string>
+    <string name="save_button">Save</string>
+    <string name="hint_post_title">Title</string>
+    <string name="menu_title">Add Thoughts</string>
+    <string name="Signout">Signout</string>
+    <string name="no_thoughts_hint">Write a Journal Entry by clicking the \"+\" icon</string>
+</resources>
