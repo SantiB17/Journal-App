@@ -41,7 +41,7 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
 
         viewHolder.title.setText(journal.getTitle());
         viewHolder.thoughts.setText(journal.getThought());
-        viewHolder.name.setText(journal.getUsername());
+//        viewHolder.name.setText(journal.getUsername());
 
         Picasso.get().load(imageUrl).placeholder(R.drawable.image_three).fit()
                 .into(viewHolder.image); //Use Picasso library to download and show image
@@ -49,6 +49,7 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         //Handling the date of the posted journal
         String timeAgo = (String) DateUtils.getRelativeTimeSpanString(journal.getTimeAdded()
                 .getSeconds()*1000); //casting a char to a string
+        viewHolder.dateAdded.setText(timeAgo);
 
     }
 
