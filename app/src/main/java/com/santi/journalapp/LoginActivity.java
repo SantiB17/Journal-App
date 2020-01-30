@@ -28,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Objects;
+
 import util.JournalApi;
 
 public class LoginActivity extends AppCompatActivity {
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
         firebaseAuth = FirebaseAuth.getInstance();
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -93,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                     journalApi.setUsername(snapshot.getString("username"));
                                     journalApi.setUserId(snapshot.getString("userID"));
 
-                                    startActivity(new Intent(LoginActivity.this, PostJournalActivity.class));
+                                    startActivity(new Intent(LoginActivity.this, JournalListActivity.class));
                                 }
                             }
                         }

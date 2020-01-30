@@ -18,9 +18,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private Button getStartedButton;
     private FloatingActionButton addButton;
+
 
     //connect to Firestore
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
         getStartedButton = findViewById(R.id.startButton);
 
 

@@ -24,6 +24,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.grpc.Context;
 import model.Journal;
@@ -50,6 +51,7 @@ public class JournalListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal_list);
 
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -59,8 +61,8 @@ public class JournalListActivity extends AppCompatActivity {
         journalList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true); //handles sizing in layouts
+        recyclerView.setLayoutManager(new LinearLayoutManager(this)); //properly organizes the layouts
     }
 
     @Override

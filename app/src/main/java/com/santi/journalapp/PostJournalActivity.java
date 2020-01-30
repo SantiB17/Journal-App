@@ -30,6 +30,7 @@ import com.google.firebase.storage.UploadTask;
 import com.google.protobuf.TimestampProto;
 
 import java.util.Date;
+import java.util.Objects;
 
 import model.Journal;
 import util.JournalApi;
@@ -64,6 +65,8 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_journal);
+
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
 
         storageReference = FirebaseStorage.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -130,7 +133,7 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
             filepath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() { //gets the url of the image the user uploaded
                         @Override
                         public void onSuccess(Uri uri) {
                             String imageUrl = uri.toString();
@@ -171,12 +174,12 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //the intent is the image user picks form gallery
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GALLERY_CODE && resultCode == RESULT_OK) {
             if( data != null){
-                imageUri = data.getData();
-                imageView.setImageURI(imageUri);
+                imageUri = data.getData(); //the image itself
+                imageView.setImageURI(imageUri); //now the image in ImageView is from the user's gallery
             }
         }
     }
